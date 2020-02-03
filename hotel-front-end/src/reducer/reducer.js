@@ -5,6 +5,8 @@ const initialState = {
   hotels: testData
 };
 
-function reducer(state = initialState, action) {}
+function reducer(state = initialState, action) {
+  return state;
+}
 
 export default reducer;

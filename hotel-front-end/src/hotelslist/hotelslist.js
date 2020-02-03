@@ -1,10 +1,10 @@
 import React from "react";
-import { testData } from "../utils/testdata";
 import "./hotelslist.css";
+import { useSelector } from "react-redux";
 const { HotelCard } = require("../hotelcard/hotelcard");
 
 export const HotelsList = () => {
-  const hotelList = testData;
+  const hotelList = useSelector(state => state.hotels);
   return (
     <ul>
       {hotelList.map((hotel, index) => {
