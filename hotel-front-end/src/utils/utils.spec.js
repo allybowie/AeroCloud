@@ -22,9 +22,63 @@ describe("Get Hotels Function: Will filter results based off selected facilities
   });
 });
 
-describe.only("Sort Hotels Function: Will sort currently displayed hotels by star rating", () => {
+describe("Sort Hotels Function: Will sort currently displayed hotels by star rating", () => {
   it("returns an array", () => {
     const hotels = getHotels();
     expect(sortHotels(hotels)).to.be.an("array");
+  });
+  it("returns an array of length 6 when no arguments are passed", () => {
+    const hotels = getHotels();
+    expect(sortHotels(hotels)).to.have.length(7);
+  });
+  it("returns an array of unfiltered hotels sorted by descending ratings", () => {
+    const hotels = getHotels();
+    expect(sortHotels(hotels, "desc")).to.have.length(7);
+    expect(sortHotels(hotels, "desc")[6]).to.eql({
+      name: "hotelthree",
+      starRating: 1,
+      facilities: []
+    });
+  });
+  it("returns an array of unfiltered hotels sorted by ascending ratings", () => {
+    const hotels = getHotels();
+    expect(sortHotels(hotels, "asc")).to.have.length(7);
+    expect(sortHotels(hotels, "asc")[0]).to.eql({
+      name: "hotelthree",
+      starRating: 1,
+      facilities: []
+    });
+  });
+  it("returns an array of filtered hotels sorted in ascending order", () => {
+    const hotelsCarPark = getHotels(["car park"]);
+    const hotelsPoolCarPark = getHotels(["car park", "pool"]);
+    expect(sortHotels(hotelsCarPark, "asc")).to.have.length(5);
+    expect(sortHotels(hotelsCarPark, "asc")[0]).to.eql({
+      name: "hotelnine",
+      starRating: 2,
+      facilities: ["car park", "pool"]
+    });
+    expect(sortHotels(hotelsPoolCarPark, "asc")).to.have.length(3);
+    expect(sortHotels(hotelsPoolCarPark, "asc")[0]).to.eql({
+      name: "hotelnine",
+      starRating: 2,
+      facilities: ["car park", "pool"]
+    });
+  });
+  it("returns an array of filtered hotels in descending order", () => {
+    const hotelsCarPark = getHotels(["car park"]);
+    const hotelsPoolCarPark = getHotels(["car park", "pool"]);
+    expect(sortHotels(hotelsCarPark, "desc")).to.have.length(5);
+    expect(sortHotels(hotelsCarPark, "desc")[0]).to.eql({
+      name: "hotelone",
+      starRating: 5,
+      facilities: ["car park", "pool"]
+    });
+    expect(sortHotels(hotelsPoolCarPark, "desc")).to.have.length(3);
+    expect(sortHotels(hotelsPoolCarPark, "desc")[0]).to.eql({
+      name: "hotelone",
+      starRating: 5,
+      facilities: ["car park", "pool"]
+    });
   });
 });

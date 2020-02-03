@@ -14,8 +14,16 @@ const getHotels = (filters = []) => {
   return hotels;
 };
 
-const sortHotels = () => {
-  return [];
+const sortHotels = (inputHotels, sort) => {
+  let hotels = inputHotels;
+  sort === "desc"
+    ? (hotels = inputHotels.sort((a, b) => {
+        return b.starRating - a.starRating;
+      }))
+    : (hotels = inputHotels.sort((a, b) => {
+        return a.starRating - b.starRating;
+      }));
+  return hotels;
 };
 
 module.exports = { getHotels, sortHotels };
