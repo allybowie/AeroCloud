@@ -6,7 +6,13 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    case "SORT":
+      const sortedHotels = sortHotels(action.hotels, action.sort);
+      return { hotels: [...sortedHotels] };
+    default:
+      return state;
+  }
 }
 
 export default reducer;
