@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { getHotels, sortHotels } = require("./utils");
 
-describe("Get Hotels Function: Will filter results based off selected facilities, or return all hotels if no filters are selected", () => {
+describe.only("Get Hotels Function: Will filter results based off selected facilities, or return all hotels if no filters are selected", () => {
   it("returns an array", () => {
     expect(getHotels()).to.be.an("array");
   });
@@ -19,6 +19,25 @@ describe("Get Hotels Function: Will filter results based off selected facilities
   });
   it("returns an array of the correct length when 2 filters are passed", () => {
     expect(getHotels(["pool", "car park"])).to.have.length(3);
+  });
+  it("returns a correctly ordered array of correct length when passed filters and a sort order", () => {
+    expect(getHotels(["pool", "car park"], "desc")).to.eql([
+      {
+        name: "hotelone",
+        starRating: 5,
+        facilities: ["car park", "pool"]
+      },
+      {
+        name: "hotelfour",
+        starRating: 5,
+        facilities: ["car park", "pool"]
+      },
+      {
+        name: "hotelnine",
+        starRating: 2,
+        facilities: ["car park", "pool"]
+      }
+    ]);
   });
 });
 

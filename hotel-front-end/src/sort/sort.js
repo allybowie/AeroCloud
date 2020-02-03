@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 export const Sort = () => {
   const [order, setOrder] = useState("asc");
   const hotelList = useSelector(state => state.hotels);
+
   const dispatch = useDispatch();
 
   const handleChange = event => {
@@ -20,7 +21,7 @@ export const Sort = () => {
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
-      <button onClick={handleSubmit}>Sort</button>
+      <button onClick={handleSubmit}>Sort by rating</button>
     </div>
   );
 };

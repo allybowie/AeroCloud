@@ -7,6 +7,9 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case "FILTER":
+      const filteredHotels = getHotels(action.filters);
+      return { hotels: [...filteredHotels] };
     case "SORT":
       const sortedHotels = sortHotels(action.hotels, action.sort);
       return { hotels: [...sortedHotels] };

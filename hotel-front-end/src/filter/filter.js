@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Filter = () => {
   const [filter, setFilter] = useState([]);
+  const dispatch = useDispatch();
+  const order = useSelector(state => state.order);
 
   const handleChange = event => {
     const index = filter.indexOf(event.target.value);
@@ -10,6 +13,10 @@ export const Filter = () => {
       ? newFilters.splice(index, 1)
       : newFilters.push(event.target.value);
     setFilter(newFilters);
+  };
+
+  const handleSubmit = () => {
+    dispatch({ type: "FILTER", filters: [...filter], order: order });
   };
 
   return (
@@ -36,7 +43,7 @@ export const Filter = () => {
           <input type="checkbox" value="pets" onChange={handleChange}></input>
         </label>
       </form>
-      <button>Apply Filters:</button>
+      <button onClick={handleSubmit}>Apply Filters:</button>
     </div>
   );
 };

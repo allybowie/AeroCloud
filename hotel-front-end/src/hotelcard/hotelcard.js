@@ -6,9 +6,9 @@ export const HotelCard = props => {
   const { name, starRating, facilities } = details;
   return (
     <div className="HotelCard">
-      <p>{name}</p>
-      <p>{starRating}</p>
-      <p>{facilities.join(" ")}</p>
+      <p>Name: {name}</p>
+      <p>Rating: {starRating}</p>
+      <p>Facilities: {facilities.join(", ")}</p>
     </div>
   );
 };

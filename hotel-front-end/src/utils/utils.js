@@ -1,6 +1,6 @@
 const { testData } = require("./testdata");
 
-const getHotels = (filters = []) => {
+const getHotels = (filters = [], order = null) => {
   let hotels = [];
 
   filters !== []
@@ -10,6 +10,10 @@ const getHotels = (filters = []) => {
         }
       })
     : (hotels = testData);
+
+  if (order) {
+    hotels = sortHotels([...hotels], order);
+  }
 
   return hotels;
 };
