@@ -1,0 +1,7 @@
+.HotelCard {
+  box-shadow: 10px 5px 5px darkgray;
+  font-size: calc(10px + 1vmin);
+  color: rgb(85, 85, 85);
+  height: calc(10px + 13vmin);
+  width: calc(10px + 40vmin);
+}

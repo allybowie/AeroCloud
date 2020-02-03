@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: 20% 80%;
+  grid-template-columns: auto calc(10px + 40vmin) auto;
 }
 
 .App-logo {
@@ -14,10 +17,13 @@
 }
 
 .App-header {
+  grid-row: 1/2;
+  grid-column: 2/3;
   background-color: #282c34;
   min-height: 15vh;
+  width: calc(10px + 40vmin);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 5vmin);

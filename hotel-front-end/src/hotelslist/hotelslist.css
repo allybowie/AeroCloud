@@ -1,0 +1,8 @@
+.HotelList {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  width: calc(10px + 40vmin);
+  height: calc(10px + 80vmin);
+  overflow: scroll;
+  /* display: flex; */
+}
