@@ -6,7 +6,7 @@ const { HotelCard } = require("../hotelcard/hotelcard");
 export const HotelsList = () => {
   const hotelList = testData;
   return (
-    <ul className="HotelList">
+    <ul>
       {hotelList.map((hotel, index) => {
         return <HotelCard key={index} details={hotel} />;
       })}
