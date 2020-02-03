@@ -14,4 +14,8 @@ const getHotels = (filters = []) => {
   return hotels;
 };
 
-module.exports = { getHotels };
+const sortHotels = () => {
+  return [];
+};
+
+module.exports = { getHotels, sortHotels };
