@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./filter.css";
 
 export const Filter = () => {
   const [filter, setFilter] = useState([]);
@@ -20,8 +21,9 @@ export const Filter = () => {
   };
 
   return (
-    <div>
+    <div className="Filter">
       <form>
+        <h2 className="FacilitiesHeader">Facilities</h2>
         <label>
           Car Park
           <input

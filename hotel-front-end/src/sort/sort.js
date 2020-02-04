@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import "./sort.css";
 
 export const Sort = () => {
   const [order, setOrder] = useState("asc");

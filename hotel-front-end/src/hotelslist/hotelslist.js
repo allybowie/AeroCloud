@@ -6,10 +6,10 @@ const { HotelCard } = require("../hotelcard/hotelcard");
 export const HotelsList = () => {
   const hotelList = useSelector(state => state.hotels);
   return (
-    <ul>
+    <div className="HotelList">
       {hotelList.map((hotel, index) => {
         return <HotelCard key={index} details={hotel} />;
       })}
-    </ul>
+    </div>
   );
 };
